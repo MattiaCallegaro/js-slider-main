@@ -1,14 +1,9 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container{
+.container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #carousel{
@@ -52,4 +47,36 @@
     text-align: right;
     color: #fff;
     text-shadow: 0 0 5px black;
+}
+
+#thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    height: 100px;
+}
+
+.thumb {
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.thumb.active {
+    opacity: 1;
+    border: 2px solid white;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+figcaption{
+    margin-right: 45px;
 }
