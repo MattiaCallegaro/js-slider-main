@@ -70,3 +70,7 @@
 figcaption{
     margin-right: 45px;
 }
+
+i:hover{
+    transform: perspective(40px) rotateY(20deg);
+}
