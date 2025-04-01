@@ -61,6 +61,7 @@ const renderImages = (array) => {
     gallery.innerHTML = images;
 }
 
+
 // funzione che mi manda avanti le immagini da vedere
 const nextImage = () => {
     // rimuovo la classe active dall'elemento attualmente attivo
@@ -95,6 +96,16 @@ const previousImage = () => {
     images[activeImage].classList.add('active');
 
 }
+// creo una funzione per cambiare immagine
+const showImageThumbnail = (index) => {
+  images[activeImage].classList.remove('active');
+  activeImage = parseInt (index);
+
+  images[activeImage].classList.add('active');
+
+  clearInterval(intervalId);
+  intervalId = setInterval(nextImage, 2000);
+}
 
 // CORPO DEL PROGRAMMA
 
@@ -105,6 +116,8 @@ renderImages(pics);
 let activeImage = 0;
 // // vado a prendere tutte le immagini dal dom
 const images = document.querySelectorAll('#carousel figure');
+//recupero le immagini thumbnail dal dom
+const thumbnails = document.querySelectorAll('.thumbnails img');
 // aggiungo all'elemento con indice 0 dell'array images la classe active
 images[activeImage].classList.add('active');
 
@@ -112,9 +125,15 @@ images[activeImage].classList.add('active');
 const nextButton = document.querySelector('.fa-arrow-right');
 const leftButton = document.querySelector('.fa-arrow-left');
 
+// aggiungiamo gli event listener
 nextButton.addEventListener('click', nextImage);
-
 leftButton.addEventListener('click', previousImage);
-
+//aggiungo event listener ad ogni thumbnail
+thumbnails.forEach(thumbnail => {
+  thumbnail.addEventListener('click', () => {
+    const index = thumbnail.getAttribute('data-index');
+    showImageThumbnail(index);
+  })
+})
 // autoplay
 const intervalId = setInterval(nextImage, 2000);
