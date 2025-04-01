@@ -26,6 +26,7 @@ const pics = [
     }
   ];
 
+
 //   DEFINIZIONE DELLE FUNZIONI
 // definizione della funzione che crea la singola immagine
   const createImage = (galleryImage) => {

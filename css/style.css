@@ -1,3 +1,21 @@
+body {
+    background: url('../img/jbOBcJ55-fond-decran-bleu-pastel-48.webp') no-repeat center center fixed;
+    background-size: cover;
+    animation: backgroundAnimation 15s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -5,6 +23,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 
 #carousel{
     display: flex;
